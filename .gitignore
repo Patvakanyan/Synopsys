@@ -1,0 +1,20 @@
+# Object files and compiler-generated headers
+*.o
+*.obj
+*.gch
+*.pch
+
+# Executables produced by the examples
+/list/list
+/vector/vec
+/vector/vector_tests
+/algorithms/merge/a.out
+/algorithms/merge/merge_test
+/test/inlineVar/a.out
+
+# Common build and IDE artifacts
+/build/
+/cmake-build-*/
+.vscode/
+.idea/
+.DS_Store
