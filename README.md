@@ -1,20 +1,22 @@
 # C++ Practice
 
-A collection of small C++ exercises and experiments, including data structures,
-algorithms, and language feature examples. Each folder is intended to be
-explored independently.
+Small, independent C++ exercises covering data structures, algorithms, and
+HackerRank problems. Most examples have their own `main` function, so build and
+run them separately rather than linking the whole repository together.
 
-## Contents
+## Repository layout
 
-- `list/` — doubly linked list implementation and a small driver program.
-- `vector/` — vector-related C++ exercise with a Makefile.
-- `algorithms/merge/` — merge sort implementation and related files.
-- `test/` — standalone practice examples.
-- `HackerRank/` — space for HackerRank exercises.
+- `list/` — doubly linked list implementation and demo program.
+- `vector/` — `vector2` dynamic-array implementation, demo, and tests.
+- `algorithms/merge/` — merge sort implementation and demo.
+- `HackerRank/Arrays/` — array challenge solutions.
+- `HackerRank/LinkedLists/` — linked-list challenge solutions.
+- `HackerRank/WarmUpChallenges/` — warm-up challenge solutions.
+- `test/` — small language-feature examples, including inline variables.
 
-## Build examples
+## Build and run
 
-The `list` and `vector` directories include Makefiles. Build and run them with:
+The `list` and `vector` directories have Makefiles and require a C++17 compiler.
 
 ```sh
 make -C list
@@ -24,14 +26,23 @@ make -C vector
 ./vector/vec
 ```
 
-Clean generated files with `make -C list fclean` or `make -C vector fclean`.
-
-The other exercises may be compiled individually with a C++17 compiler, for
-example:
+Run the vector test executable with:
 
 ```sh
-c++ -std=c++17 -Wall -Wextra -Werror algorithms/merge/main.cpp \
-    algorithms/merge/merge.cpp -o /tmp/merge
+make -C vector test
 ```
 
-Build commands can vary depending on which source files each exercise uses.
+The Makefiles also provide `clean`, `fclean`, and `re` targets. For example,
+`make -C vector fclean` removes its generated objects and executables.
+
+Compile the merge sort demo directly from the repository root:
+
+```sh
+c++ -std=c++17 -Wall -Wextra -Werror \
+    algorithms/merge/main.cpp algorithms/merge/merge.cpp -o /tmp/merge
+/tmp/merge
+```
+
+The remaining examples are standalone practice files. Compile the source file
+you want to work on with a C++17 compiler; HackerRank solutions may expect the
+platform's input format or provided data structures.
