@@ -4,7 +4,7 @@ CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++17
 CPPFLAGS = -I.
 
-SRCS = main.cpp list.cpp
+SRCS = main.cpp 
 OBJS = $(SRCS:.cpp=.o)
 
 all: $(NAME)

@@ -1,41 +1,51 @@
 #pragma once
 
+#include <cstddef>
 #include <initializer_list>
 
-
 template <typename T>
-struct ListNode {
+struct ListNode
+{
 	T val;
-	ListNode *next;
-	ListNode *prev;
-	ListNode(T x);
+	ListNode<T> *next;
+	ListNode<T> *prev;
+
+	explicit ListNode(T value);
 	ListNode();
 };
 
-
 template <typename T>
-class DoublyLinkedList {
+class DoublyLinkedList
+{
 public:
+	using value_type = T;
+	using size_type = std::size_t;
+
 	DoublyLinkedList();
+	DoublyLinkedList(const std::initializer_list<T> &values);
+	DoublyLinkedList(size_type count, const T &value);
 
-	DoublyLinkedList(const std::initializer_list<T> &list);
+	DoublyLinkedList(const DoublyLinkedList &other);
+	DoublyLinkedList(DoublyLinkedList &&other) noexcept;
+	DoublyLinkedList &operator=(const DoublyLinkedList &other);
+	DoublyLinkedList &operator=(DoublyLinkedList &&other) noexcept;
 
-	DoublyLinkedList(size_t size, const T &value);
-	DoublyLinkedList(const DoublyLinkedList<T> &other);
-	DoublyLinkedList(DoublyLinkedList<T> &&other) noexcept;
-	DoublyLinkedList<T> &operator=(const DoublyLinkedList<T> &other);
-	DoublyLinkedList<T> &operator=(DoublyLinkedList<T> &&other) noexcept;
+	~DoublyLinkedList();
 
 	void push_back(const T &value);
-	void pop_back();
 	void push_front(const T &value);
+	void pop_back();
 	void pop_front();
 	void insert(const T &value, int index);
 	void remove(int index);
+
 	T &operator[](int index);
 
-	~DoublyLinkedList();
+	void clear();
+
 private:
 	ListNode<T> *head;
 	ListNode<T> *tail;
 };
+
+#include "list.ipp"
