@@ -34,6 +34,15 @@ vector2<T>::vector2(size_t size) : size_(size), capacity_(size_ > 0 ? size_ : 2)
 	size_ = size;
 }
 
+
+
+template <typename T>
+vector2<T>::vector2(const T *data, std::size_t size) : size_(size), capacity_(size_ > 0 ? size_ : 2), data_(static_cast<T *>(::operator new[](capacity_ * sizeof(T))))
+{
+	for (std::size_t i = 0; i < size; ++i)
+		new (data_ + i) T(data[i]);
+}
+
 template <typename T>
 vector2<T>::vector2(const vector2<T> &obj)
 	: size_(obj.size_), capacity_(obj.capacity_ > 0 ? obj.capacity_ : 2),
