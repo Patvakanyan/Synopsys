@@ -8,6 +8,7 @@ run them separately rather than linking the whole repository together.
 
 - `list/` — doubly linked list implementation and demo program.
 - `vector/` — `vector2` dynamic-array implementation, demo, and tests.
+- `bst/` — binary search tree implementation, demo, and tests.
 - `algorithms/merge/` — merge sort implementation and demo.
 - `HackerRank/Arrays/` — array challenge solutions.
 - `HackerRank/LinkedLists/` — linked-list challenge solutions.
@@ -16,7 +17,8 @@ run them separately rather than linking the whole repository together.
 
 ## Build and run
 
-The `list` and `vector` directories have Makefiles and require a C++17 compiler.
+The `list`, `vector`, and `bst` directories have Makefiles and require a C++17
+compiler.
 
 ```sh
 make -C list
@@ -24,12 +26,33 @@ make -C list
 
 make -C vector
 ./vector/vec
+
+make -C bst
+./bst/bst
 ```
 
 Run the vector test executable with:
 
 ```sh
 make -C vector test
+```
+
+Run the BST test executable with:
+
+```sh
+make -C bst test
+```
+
+The BST demo prints the tree sideways, with the root at the left and deeper
+levels indented:
+
+```text
+        14
+    10
+8
+        6
+    3
+        1
 ```
 
 The Makefiles also provide `clean`, `fclean`, and `re` targets. For example,
