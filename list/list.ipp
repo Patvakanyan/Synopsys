@@ -127,7 +127,7 @@ void DoublyLinkedList<T>::pop_front()
 	if (!head)
 		return;
 
-	ListNode<T> *ttailmp = head;
+	ListNode<T> *tmp = head;
 	head = head->next;
 	if (head)
 		head->prev = nullptr;

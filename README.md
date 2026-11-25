@@ -17,6 +17,21 @@ run them separately rather than linking the whole repository together.
 
 ## Build and run
 
+From the repository root, build the list, vector, BST, union string, and merge
+sort programs with:
+
+```sh
+make -j
+./build/bin/merge
+make test
+```
+
+Build one program with `make list`, `make vector`, `make bst`, `make unionString`,
+or `make merge`. Executables are placed in `build/bin/`. The root Makefile tracks
+header dependencies automatically and supports compiler overrides such as
+`make CXX=clang++`. Run `make help` for cleanup and rebuild commands.
+Unfinished examples and HackerRank snippets are excluded from the root build.
+
 The `list`, `vector`, and `bst` directories have Makefiles and require a C++17
 compiler.
 
